@@ -4,6 +4,7 @@ set(UT_SOURCES
     test_trivial.cpp
     test_combinatorics.cpp
     test_modulararithmetic.cpp
+    test_numbertheory.cpp
     )
 
 add_executable(unittests
