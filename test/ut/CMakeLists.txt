@@ -2,6 +2,8 @@ project(ut)
 
 set(UT_SOURCES
     test_trivial.cpp
+    test_combinatorics.cpp
+    test_modulararithmetic.cpp
     )
 
 add_executable(unittests
@@ -21,4 +23,5 @@ target_link_libraries(unittests
 target_include_directories(unittests PUBLIC 
     ${GTEST_INCLUDE_DIR}
     ${GTEST_DIR}
+    ${SRC_DIR}
     )
