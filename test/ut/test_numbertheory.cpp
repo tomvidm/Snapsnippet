@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-
+#include <iostream>
 #include "numbertheory.hpp"
 
 TEST(TestNumberTheory, FibonacciSeq) {
@@ -11,3 +11,10 @@ TEST(TestNumberTheory, FibonacciSeq) {
     EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(4), 3);
     EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(5), 5);
 }
+
+TEST(TestNumberTheory, CollatzSeq) {
+    using snapsnip::CollatzSeq;
+    CollatzSeq<unsigned> coll(17);
+    EXPECT_EQ(coll.getSequence().size(), 13);
+}
+

@@ -23,6 +23,5 @@ namespace snapsnip {
             } // while
             return result;
         } // if else
-        
     } // combinations
 } // namespace snapsnip
