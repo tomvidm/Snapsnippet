@@ -25,4 +25,5 @@ target_include_directories(unittests PUBLIC
     ${GTEST_INCLUDE_DIR}
     ${GTEST_DIR}
     ${SRC_DIR}
+    ${Boost_INCLUDE_DIRS}
     )

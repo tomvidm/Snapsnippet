@@ -45,7 +45,7 @@ namespace snapsnip {
     template <typename T>
     class CollatzSeq {
     public:
-        CollatzSeq::CollatzSeq(T k);
+        CollatzSeq(T k);
         void build(T k);
         const std::vector<T>& getSequence() const;
         typename std::vector<T>::const_iterator cbegin() const;
@@ -92,5 +92,54 @@ namespace snapsnip {
     typename std::vector<T>::const_iterator CollatzSeq<T>::cend() const {
         return sequence.cend();
     } // getSequence
+
+    /*
+        Exponentiation
+    */
+
+    template <typename T>
+    T iexp(T base, T exp) {
+        T result = 1;
+        while (exp > 0) {
+            if (exp & 1) {
+                result *= base;
+            }
+            exp >>= 1;
+            base *= base;
+        }
+        return result;
+    }
+
+    template <typename T>
+    T modexp(T base, T exp, T mod) {
+        if (mod == 0) {
+            return iexp<T>(base, exp);
+        } else {
+            T result = 1;
+            while (exp) {
+                if (exp & 1) {
+                    result *= base;
+                    base %= mod;
+                }
+                exp >>= 1;
+                base *= base;
+                base %= mod;
+            }
+            return result;
+        }
+    }
+
+    /* 
+        Hyperexponentiation
+    */
+
+    template <typename T>
+    T hyperexp(T base, T hypexp, T mod) {
+        if (hypexp == 1) {
+            return base % mod;
+        } else {
+            return modexp(base, hyperexp(base, hypexp - 1, mod), mod);
+        }
+    }
     
 } // namespace snapsnip
