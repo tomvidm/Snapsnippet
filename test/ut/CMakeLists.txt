@@ -3,6 +3,7 @@ project(ut)
 set(UT_SOURCES
     test_trivial.cpp
     test_combinatorics.cpp
+    test_fraction.cpp
     test_modulararithmetic.cpp
     test_numbertheory.cpp
     )

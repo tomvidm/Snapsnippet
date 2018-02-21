@@ -4,6 +4,14 @@
 #include "numbertheory.hpp"
 #include <boost/multiprecision/cpp_int.hpp>
 
+TEST(TestNumberTheory, CommonDivisor) {
+    using snapsnip::findCommonDivisor;
+
+    EXPECT_EQ(findCommonDivisor(10, 30), 10);
+    EXPECT_EQ(findCommonDivisor(3, 9), 3);
+    EXPECT_EQ(findCommonDivisor(5, 7), 1);
+}
+
 TEST(TestNumberTheory, FibonacciSeq) {
     using snapsnip::FibonacciSeq;
     EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(0), 0);

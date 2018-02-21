@@ -5,7 +5,7 @@ namespace snapsnip {
     /*
         Calculating the combinations of n choose k normally requires
         computing factorials which will quickly overflow without 
-        arbitrary precision numbers. This algorithm circumvents this
+        arbitrary precision numbers. This algorithm circumvents this (reduces risk)
         by ignoring the terms that cancel eachother. 
     */
     template <typename T>

@@ -2,8 +2,23 @@
 
 #include <vector>
 #include <map>
+#include <algorithm>
 
 namespace snapsnip {
+
+    /*
+        Common divisor
+    */
+
+    template <typename T>
+    T findCommonDivisor(T a, T b) {
+        for (T i = std::max<T>(a, b)/2; i >= 2; --i) {
+            if ((a % i == 0) && (b % i == 0)) {
+                return i;
+            }
+        }
+        return 1;
+    }
 
     /*
         This class encapsulates the fibonacci sequence by providing a simple interface
