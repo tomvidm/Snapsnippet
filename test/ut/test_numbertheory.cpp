@@ -20,12 +20,29 @@ TEST(TestNumberTheory, FibonacciSeq) {
     EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(3), 2);
     EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(4), 3);
     EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(5), 5);
+    EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(6), 8);
+    EXPECT_EQ(FibonacciSeq<unsigned>::nthElement(40), 102334155);
+}
+
+TEST(TestNumberTheory, PrimeNumbers) {
+    using snapsnip::PrimeNumbers;
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(0), 2);
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(1), 3);
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(2), 5);
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(5), 13);
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(2), 5);
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(9), 29);
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(900), 7001);
+    EXPECT_EQ(PrimeNumbers<unsigned>::nthPrime(9000), 93187);
+
 }
 
 TEST(TestNumberTheory, CollatzSeq) {
     using snapsnip::CollatzSeq;
-    CollatzSeq<unsigned> coll(17);
-    EXPECT_EQ(coll.getSequence().size(), 13);
+    CollatzSeq<unsigned> coll1(17);
+    EXPECT_EQ(coll1.getSequence().size(), 13);
+    CollatzSeq<unsigned> coll2(6003);
+    EXPECT_EQ(coll2.getSequence().size(), 42);
 }
 
 TEST(TestNumberTheory, ModExp) {

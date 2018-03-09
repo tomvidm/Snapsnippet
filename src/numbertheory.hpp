@@ -5,6 +5,14 @@
 #include <algorithm>
 
 namespace snapsnip {
+    /*
+        Divisibility
+    */
+
+    template <typename T>
+    bool isDivisiblyBy(T n, T d) {
+        return (n % d == 0) ? true : false;
+    } // isDibisbleBy
 
     /*
         Common divisor
@@ -44,7 +52,7 @@ namespace snapsnip {
     template <typename T>
     void FibonacciSeq<T>::resize(unsigned L) {
         unsigned k = sequence.size();
-        if (k <= L) {
+        while (k <= L) {
             sequence.push_back( sequence[k - 1] + sequence[k - 2] );
             ++k;
         } // if
@@ -52,6 +60,60 @@ namespace snapsnip {
 
     template <typename T>
     std::vector<T> FibonacciSeq<T>::sequence = {0, 1};
+
+    /*
+        This class encapsulates a generalized fibonacci sequence with arbitrary
+        number of seed values.
+    */
+
+    template <typename T>
+    class PrimeNumbers {
+    public:
+        static void resize(unsigned L);
+        static T nthPrime(unsigned n);
+        static T nextPrime();
+        static bool isPrime(const T& candidate);
+        static void generateUntil(const T& candidate);
+    private:
+        static std::vector<T> sequence;
+    }; // class PrimeNumbers
+
+    template <typename T>
+    T PrimeNumbers<T>::nthPrime(unsigned n) {
+        resize(n);
+        return sequence[n];
+    } // nthPrime
+
+    template <typename T>
+    bool PrimeNumbers<T>::isPrime(const T& candidate) {
+        for (auto p : sequence) {
+            if (isDivisiblyBy<T>(candidate, p)) {
+                return false;
+            } // if
+        } // for
+        return true;
+    } // isPrime
+
+    template <typename T>
+    void PrimeNumbers<T>::resize(unsigned L) {
+        unsigned k = sequence.size();
+        while (k <= L) {
+            sequence.push_back(nextPrime());
+            ++k;
+        } // if
+    } // resize
+
+    template <typename T>
+    T PrimeNumbers<T>::nextPrime() {
+        T nextPrimeCandidate = sequence.back() + 2;
+        while (!isPrime(nextPrimeCandidate)) {
+            nextPrimeCandidate += 2;
+        } // while
+        return nextPrimeCandidate;
+    }  // nextPrime
+
+    template <typename T>
+    std::vector<T> PrimeNumbers<T>::sequence = {2, 3};
 
     /* 
         Collatz sequence
@@ -80,7 +142,7 @@ namespace snapsnip {
         sequence.push_back(k);
         map[k] = sequence.size() - 1;
         while (k != 1) {
-            if (k % 2 == 0) {
+            if (isDivisiblyBy<T>(k, 2)) {
                 k /= 2;
                 sequence.push_back(k);
                 map[k] = sequence.size() - 1;
