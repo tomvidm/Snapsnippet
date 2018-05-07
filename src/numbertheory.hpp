@@ -19,13 +19,21 @@ namespace snapsnip {
     */
 
     template <typename T>
-    T findCommonDivisor(T a, T b) {
-        for (T i = std::max<T>(a, b)/2; i >= 2; --i) {
-            if ((a % i == 0) && (b % i == 0)) {
-                return i;
-            }
+    T gcd_iterative(T a, T b) {
+        while (b != 0) {
+            const T t = b;
+            b = a % b;
+            a = t;
+        } return a;
+    }
+
+    template <typename T>
+    T gcd_recursive(T a, T b) {
+        if (b == 0) {
+            return a;
+        } else {
+            return gcd(b, a % b);
         }
-        return 1;
     }
 
     /*
@@ -243,4 +251,8 @@ namespace snapsnip {
         } // for
     } // constructor
     
+    /*
+        Euler totient function
+    */
+
 } // namespace snapsnip

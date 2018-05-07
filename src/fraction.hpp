@@ -52,7 +52,7 @@ namespace snapsnip {
     void Fraction<T>::reduce() {
         T divisor;
         do {
-            divisor = findCommonDivisor<T>(numerator, denominator);
+            divisor = gcd_iterative<T>(numerator, denominator);
             numerator /= divisor;
             denominator /= divisor;
         } while (divisor > T(1));

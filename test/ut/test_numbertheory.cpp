@@ -5,11 +5,11 @@
 #include <boost/multiprecision/cpp_int.hpp>
 
 TEST(TestNumberTheory, CommonDivisor) {
-    using snapsnip::findCommonDivisor;
+    using snapsnip::gcd_iterative;
 
-    EXPECT_EQ(findCommonDivisor(10, 30), 10);
-    EXPECT_EQ(findCommonDivisor(3, 9), 3);
-    EXPECT_EQ(findCommonDivisor(5, 7), 1);
+    EXPECT_EQ(gcd_iterative(10, 30), 10);
+    EXPECT_EQ(gcd_iterative(3, 9), 3);
+    EXPECT_EQ(gcd_iterative(5, 7), 1);
 }
 
 TEST(TestNumberTheory, FibonacciSeq) {
