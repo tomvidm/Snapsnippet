@@ -218,5 +218,29 @@ namespace snapsnip {
             return modexp(base, hyperexp(base, hypexp - 1, mod), mod);
         }
     }
+
+    /*
+        Factorization
+    */
+
+    template <typename T>
+    class Factors {
+    public:
+        Factors(T n);
+    private:
+        const T base;
+        std::vector<T> factors = {1};
+    }; // class Factors
+
+    template <typename T>
+    Factors<T>::Factors(T n) 
+    : base(n) {
+        for (T d = 2; d < n; d++) {
+            while (isDivisiblyBy(n, d)) {
+                n /= d;
+                factors.push_back(d);
+            } // if
+        } // for
+    } // constructor
     
 } // namespace snapsnip

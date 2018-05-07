@@ -73,3 +73,8 @@ TEST(TestNumberTheory, Tetration) {
     EXPECT_EQ(hyperexp<bigint>(3, 3, max), 7625597484987);
 }
 
+TEST(TestNumberTheory, Factorization) {
+    using snapsnip::Factors;
+    Factors<long> f(130);
+    EXPECT_TRUE(true);
+}
