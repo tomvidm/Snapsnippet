@@ -1,6 +1,11 @@
 #pragma once
 
+#include <tuple>
+
+
 namespace snapsnip {
+    
+
     template <typename T>
     T modPow(T base, T exp, T mod) {
         if (mod == 0) {

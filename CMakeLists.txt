@@ -10,8 +10,10 @@ set(GTEST_INCLUDE_DIR "${GTEST_DIR}/include")
 
 set(SRC_DIR ${CMAKE_SOURCE_DIR}/src)
 
+
 find_package(Boost)
 
 #add_subdirectory(src)
 add_subdirectory(test/ut)
+add_subdirectory(src/projecteuler)
 add_subdirectory(lib/googletest/googletest)

@@ -6,6 +6,12 @@ set(UT_SOURCES
     test_fraction.cpp
     test_modulararithmetic.cpp
     test_numbertheory.cpp
+    test_numbertheory2.cpp
+    test_number.cpp
+    test_Primes.cpp
+    test_ModularArithmetic.cpp
+    test_EulerTotient.cpp
+    test_FindSorted.cpp
     )
 
 add_executable(unittests
